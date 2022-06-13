@@ -35,19 +35,30 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  retrofit: ^2.0.1
+  dio_http2_adapter: ^2.0.0
+  logger: ^1.1.0  #for logging purpose
+  json_serializable: ^4.1.4
+  dio_cache_interceptor: ^3.0.2
+  sentry_flutter: ^6.5.1
+  provider: ^5.0.0
+  shared_preferences: ^2.0.7
+  onesignal_flutter: ^3.2.3
+  stacked_services: ^0.8.15
+  persistent_bottom_nav_bar: ^4.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+  build_runner: ^2.1.4 #flutter pub run build_runner build 
+  retrofit_generator: ^2.0.1+2
+  stacked_generator: ^0.5.5
+
+dependency_overrides:
+  flutter_pdfview: ^1.2.2
+  analyzer: ^4.1.0
 
 # The following section is specific to Flutter packages.
 flutter:
