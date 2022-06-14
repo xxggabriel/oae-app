@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'dart:async';
-
-import 'package:oea_app/ui/home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,12 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
 
-    Timer(Duration(seconds: 3), () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomeScreen(),
-          ));
+    Timer(const Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacementNamed('/home');
     });
   }
 
@@ -46,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
           CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation(Colors.blue),
             strokeWidth: 11.0,
-          )
+          ),
         ]),
       ),
     );

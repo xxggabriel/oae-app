@@ -9,7 +9,7 @@ class ListPosts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 150, right: 10, bottom: 10),
+      padding: const EdgeInsets.only(top: 150, right: 10, bottom: 10),
       child: Container(
         height: MediaQuery.of(context).size.height - 240,
         color: Colors.white,
@@ -20,23 +20,21 @@ class ListPosts extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(8),
-                    child: Container(
-                      child: CircleAvatar(
+                    padding: const EdgeInsets.all(8),
+                    child: CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.white,
                         backgroundImage: NetworkImage(
                             "https://picsum.photos/320/320?id=$index"),
                       ),
-                    ),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width - 160,
+                    width: MediaQuery.of(context).size.width - 190,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Title Post",
+                        Text("MONITORIA (MONITORIA FESGO 2022.1) ",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -48,6 +46,13 @@ class ListPosts extends StatelessWidget {
                             fontSize: 17,
                           ),
                         ),
+
+                        Text("Gabriel Oliveira",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                        )),
+                        SizedBox(height: 30,)
                       ],
                     ),
                   ),
@@ -56,7 +61,8 @@ class ListPosts extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("17:00"),
+                        Text("Seg."),
+                        Text("17:00 - 19:30"),
                         SizedBox(
                           height: 10,
                         ),
