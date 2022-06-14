@@ -17,21 +17,21 @@ class BlockSection extends StatelessWidget {
               onTap: () => {Navigator.of(context).pushNamed('/events')},
               child: Block(
                 title: "Eventos",
-                icon: Icons.add,
+                icon: Icons.browse_gallery,
               ),
             ),
             GestureDetector(
               onTap: () => {},
               child: Block(
                 title: "Novidades",
-                icon: Icons.add,
+                icon: Icons.feed,
               ),
             ),
             GestureDetector(
               onTap: () => {},
               child: Block(
                 title: "Vagas De Emprego",
-                icon: Icons.add,
+                icon: Icons.group,
               ),
             ),
           ],

@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 class ApiBase {
   static String get baseUrl {
     if (kReleaseMode) {
-      return "https://pedapp.com.br";
+      return "https://localhost:8000";
     } else {
-      return "https://pedapp.com.br";
+      return "https://localhost:8000";
     }
   }
 

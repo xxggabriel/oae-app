@@ -22,20 +22,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF30D6CA),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            "Loading...",
-            style: TextStyle(
-              fontSize: 22.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Image.asset("assets/images/logo/estacio-logo-white.png", width: 300,),
           SizedBox(
-            height: 5.0,
+            height: 15.0,
           ),
           CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation(Colors.blue),
+            valueColor: AlwaysStoppedAnimation(Colors.white),
             strokeWidth: 11.0,
           ),
         ]),

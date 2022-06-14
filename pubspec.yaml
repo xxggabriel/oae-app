@@ -46,6 +46,7 @@ dependencies:
   onesignal_flutter: ^3.2.3
   stacked_services: ^0.8.15
   persistent_bottom_nav_bar: ^4.0.2
+  intl: ^0.17.0
   
 dev_dependencies:
   flutter_test:
