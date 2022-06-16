@@ -21,8 +21,9 @@ EventModel _$EventModelFromJson(Map<String, dynamic> json) {
     schedule: json['schedule'],
     daysWeek: json['days_week'],
     startDate: safeDateFromJson(json['start_date'] as String?),
-    startEndDate: safeDateFromJson(json['start_end_date'] as String?),
+    endDate: safeDateFromJson(json['end_date'] as String?),
     cancellationLimit: safeDateFromJson(json['cancellation_limit'] as String?),
+    place: json['place'] as String?,
   )..image = json['image'] as String?;
 }
 
@@ -47,10 +48,11 @@ Map<String, dynamic> _$EventModelToJson(EventModel instance) {
   writeNotNull('period_of', instance.periodOf);
   writeNotNull('period_until', instance.periodUntil);
   writeNotNull('description', instance.description);
+  writeNotNull('place', instance.place);
   writeNotNull('schedule', instance.schedule);
   writeNotNull('days_week', instance.daysWeek);
   writeNotNull('start_date', safeDateToJson(instance.startDate));
-  writeNotNull('start_end_date', safeDateToJson(instance.startEndDate));
+  writeNotNull('end_date', safeDateToJson(instance.endDate));
   writeNotNull(
       'cancellation_limit', safeDateToJson(instance.cancellationLimit));
   return val;

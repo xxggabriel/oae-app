@@ -47,12 +47,14 @@ dependencies:
   stacked_services: ^0.8.15
   persistent_bottom_nav_bar: ^4.0.2
   intl: ^0.17.0
+  webview_flutter: ^3.0.4
+  flutter_svg: ^1.1.0
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
   
-
+                      #pub run build_runner build --delete-conflicting-outputs
   build_runner: ^2.1.4 #flutter pub run build_runner build 
   retrofit_generator: ^2.0.1+2
   stacked_generator: ^0.5.5
@@ -73,6 +75,7 @@ flutter:
   assets:
     - assets/images/logo/estacio-logo-white.png
     - assets/images/banners/banner1.jpg
+    - assets/svg/lost-svgrepo-com.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

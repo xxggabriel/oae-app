@@ -14,21 +14,44 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<EventModel>> findEventsAll() async {
+  Future<ApiResponse<List<EventModel>>> findEventsAll() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<EventModel>>(
+        _setStreamType<ApiResponse<List<EventModel>>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/api/v1/admin/complementary-activities',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse<EventModel>.fromJson(
-      _result.data!,
-      (json) => EventModel.fromJson(json as Map<String, dynamic>),
-    );
+    final value = ApiResponse<List<EventModel>>.fromJson(
+        _result.data!,
+        (json) => (json as List<dynamic>)
+            .map<EventModel>(
+                (i) => EventModel.fromJson(i as Map<String, dynamic>))
+            .toList());
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<List<EventModel>>> findEvent(id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': id};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<List<EventModel>>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/api/v1/admin/complementary-activitie',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ApiResponse<List<EventModel>>.fromJson(
+        _result.data!,
+        (json) => (json as List<dynamic>)
+            .map<EventModel>(
+                (i) => EventModel.fromJson(i as Map<String, dynamic>))
+            .toList());
     return value;
   }
 

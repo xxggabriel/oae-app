@@ -41,6 +41,9 @@ class EventModel {
   @JsonKey()
   String? description;
   
+  @JsonKey(name: "place")
+  String? place;
+
   @JsonKey()
   Object? schedule;
 
@@ -50,12 +53,12 @@ class EventModel {
   @JsonKey(name: "start_date", fromJson: safeDateFromJson, toJson: safeDateToJson)
   DateTime? startDate;
   
-  @JsonKey(name: "start_end_date", fromJson: safeDateFromJson, toJson: safeDateToJson)
-  DateTime? startEndDate;
+  @JsonKey(name: "end_date", fromJson: safeDateFromJson, toJson: safeDateToJson)
+  DateTime? endDate;
   
   @JsonKey(name: "cancellation_limit", fromJson: safeDateFromJson, toJson: safeDateToJson)
   DateTime? cancellationLimit;
-
+  
   EventModel({
     required this.id,
     required this.title,
@@ -70,15 +73,16 @@ class EventModel {
     this.schedule,
     this.daysWeek,
     this.startDate,
-    this.startEndDate,
+    this.endDate,
     this.cancellationLimit,
+    this.place
   });
+
+  String get startDateString => startDate?.format("dd 'de' MMM, yyyy") ?? "";
+  String get endDateString => endDate?.format("dd 'de' MMM, yyyy") ?? "";
+  String get cancellationLimitString => cancellationLimit?.format("dd 'de' MMM, yyyy") ?? "";
 
   factory EventModel.fromJson(Object? json) => _$EventModelFromJson(json as Map<String, dynamic>);
 
   Map<String, dynamic> toJson() => _$EventModelToJson(this);
-
-  String get startDateString => startDate?.format("dd 'de' MMM, yyyy") ?? "";
-  String get startEndDateString => startEndDate?.format("dd 'de' MMM, yyyy") ?? "";
-  String get cancellationLimitString => cancellationLimit?.format("dd 'de' MMM, yyyy") ?? "";
 }

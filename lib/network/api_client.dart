@@ -14,7 +14,10 @@ abstract class ApiClient {
 
 // BUSCA DE DADOS
   @GET("/api/v1/admin/complementary-activities")
-  Future<ApiResponse<EventModel>> findEventsAll();
+  Future<ApiResponse<List<EventModel>>> findEventsAll();
+
+  @GET("/api/v1/admin/complementary-activitie" )
+  Future<ApiResponse<List<EventModel>>> findEvent(@Query("id") int id);
 
  
 }

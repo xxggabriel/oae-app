@@ -9,7 +9,7 @@ class EventsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBase(
         hasTop: false,
-        child: const EventList()
+        child: EventList()
     );
   }
 }

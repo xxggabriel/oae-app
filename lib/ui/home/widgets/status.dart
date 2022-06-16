@@ -15,11 +15,11 @@ class Status extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Categorias"),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.more_vert),
-              )
+              Text("Atleticas"),
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: Icon(Icons.more_vert),
+              // )
             ],
           ),
         ),

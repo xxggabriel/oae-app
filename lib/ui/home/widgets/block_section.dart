@@ -45,8 +45,8 @@ class BlockSection extends StatelessWidget {
             GestureDetector(
               onTap: () => {Navigator.of(context).pushNamed('/events')},
               child: Block(
-                title: "Eventos",
-                icon: Icons.add,
+                title: "Atleticas",
+                icon: Icons.sports_handball,
               ),
             ),
             GestureDetector(

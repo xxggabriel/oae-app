@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:oea_app/app/locator.dart';
 import 'package:oea_app/ui/event/event_screen.dart';
 import 'package:oea_app/ui/events/events_screen.dart';
 import 'package:oea_app/ui/home/home_screen.dart';
 import 'package:oea_app/ui/splash/splash_screen.dart';
 
-void main() {
+void main() async{
+
+  await setupLocator();
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     // home: SplashScreen(),
