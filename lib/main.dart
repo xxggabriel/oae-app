@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oea_app/app/locator.dart';
+import 'package:oea_app/ui/blog/post_screen.dart';
+import 'package:oea_app/ui/blog/posts_screen.dart';
 import 'package:oea_app/ui/event/event_screen.dart';
 import 'package:oea_app/ui/events/events_screen.dart';
 import 'package:oea_app/ui/home/home_screen.dart';
@@ -18,6 +20,8 @@ void main() async{
       '/home': (context) => const HomeScreen(),
       '/event' : (context) => const EventScreen(),
       '/events' : (context) => const EventsScreen(),
+      '/post' : (context) => const PostScreen(),
+      '/posts' : (context) => const PostsScreen(),
     },
   ));
 }

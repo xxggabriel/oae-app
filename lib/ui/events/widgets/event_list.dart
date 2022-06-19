@@ -4,6 +4,7 @@ import 'package:oea_app/app/locator.dart';
 import 'package:oea_app/models/event_model.dart';
 import 'package:oea_app/network/api_client.dart';
 import 'package:oea_app/network/api_response.dart';
+import 'package:oea_app/ui/widgets/card_widget.dart';
 
 class EventList extends StatefulWidget {
   @override
@@ -73,19 +74,8 @@ class _EventListState extends State<EventList> {
                   {Navigator.of(context).pushNamed('/event', arguments: data)},
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Container(
+                child: CardWidget(
                   margin: EdgeInsets.only(bottom: 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0.0, 1.0), //(x,y)
-                        blurRadius: 6.0, // shadow direction: bottom right
-                      )
-                    ],
-                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Row(

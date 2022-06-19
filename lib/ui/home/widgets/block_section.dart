@@ -14,14 +14,18 @@ class BlockSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             GestureDetector(
-              onTap: () => {Navigator.of(context).pushNamed('/events')},
+              onTap: () => {
+                Navigator.of(context).pushNamed('/events')
+              },
               child: Block(
                 title: "Eventos",
                 icon: Icons.browse_gallery,
               ),
             ),
             GestureDetector(
-              onTap: () => {},
+              onTap: () => {
+                Navigator.of(context).pushNamed('/posts')
+              },
               child: Block(
                 title: "Novidades",
                 icon: Icons.feed,
@@ -52,8 +56,8 @@ class BlockSection extends StatelessWidget {
             GestureDetector(
               onTap: () => {},
               child: Block(
-                title: "Novidades",
-                icon: Icons.add,
+                title: "Foruns",
+                icon: Icons.forum,
               ),
             ),
             GestureDetector(
@@ -84,7 +88,7 @@ class Block extends StatelessWidget {
           color: Colors.blue,
         ),
         
-        height: 150,
+        height: 130,
         width: (MediaQuery.of(context).size.width / 3) - 10,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

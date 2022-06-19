@@ -4,7 +4,7 @@ import 'package:oea_app/ui/home/widgets/top_bar.dart';
 class LayoutBase extends StatelessWidget {
   final Widget child;
   final bool hasTop;
-  LayoutBase({required this.child, this.hasTop = true});
+  LayoutBase({required this.child, this.hasTop = false});
 
   @override
   Widget build(BuildContext context) {
