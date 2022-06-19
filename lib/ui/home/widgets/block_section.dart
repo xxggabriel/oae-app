@@ -32,7 +32,9 @@ class BlockSection extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () => {},
+              onTap: () => {
+                Navigator.of(context).pushNamed('/jobs')
+              },
               child: Block(
                 title: "Vagas De Emprego",
                 icon: Icons.group,
