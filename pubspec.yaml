@@ -59,6 +59,10 @@ dev_dependencies:
   retrofit_generator: ^2.0.1+2
   stacked_generator: ^0.5.5
 
+flutter_launcher_name:
+  name: "Estácio: My Help"
+
+
 dependency_overrides:
   # flutter_pdfview: ^1.2.2
   analyzer: ^4.1.0
