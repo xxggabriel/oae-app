@@ -10,7 +10,6 @@ class PostsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBase(
-      hasTop: false,
       child: PostList()
     );
   }

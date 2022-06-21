@@ -29,11 +29,6 @@ class TopBar extends StatelessWidget {
             child: const Status()
           ),
         ),
-        // ListPosts(),
-        // Padding(
-        //   padding: EdgeInsets.only(left: 20),
-        //   child: ,
-        // )
       ],
     );
   }

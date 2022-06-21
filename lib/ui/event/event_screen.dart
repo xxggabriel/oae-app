@@ -23,7 +23,6 @@ class _EventScreenState extends State<EventScreen> {
 //     """;
 
     return LayoutBase(
-      hasTop: false,
       child: Column(
         children: [
           args.image == null ? Container() : Image.network(args.image ?? ""),

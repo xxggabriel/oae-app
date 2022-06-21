@@ -4,7 +4,10 @@ import 'package:oea_app/app/locator.dart';
 import 'package:oea_app/models/event_model.dart';
 import 'package:oea_app/network/api_client.dart';
 import 'package:oea_app/network/api_response.dart';
+import 'package:oea_app/ui/home/widgets/top_bar.dart';
+import 'package:oea_app/ui/layout/layout_base.dart';
 import 'package:oea_app/ui/widgets/card_widget.dart';
+import 'package:oea_app/ui/widgets/loading_widget.dart';
 
 class EventList extends StatefulWidget {
   @override
@@ -20,22 +23,22 @@ class _EventListState extends State<EventList> {
       // future: _getData(),
       builder: (BuildContext context,
           AsyncSnapshot<ApiResponse<List<EventModel>>> snapshot) {
+        
         switch (snapshot.connectionState) {
           case ConnectionState.none:
             return Text("Press buttom to start");
           case ConnectionState.waiting:
-            return loading();
+            return LoadingWidget();
           default:
+            // return Container(height: 50,width: 50,color: Colors.red,);
             if (snapshot.hasError) {
               // return Text("Error: ${snapshot.error}");
               return defaultMessage(
-                      Text(
-                        "Ocorreu um erro inesperado",
-                        style:
-                            TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      Icons.warning
-                    );
+                  Text(
+                    "Ocorreu um erro inesperado",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Icons.warning);
             } else {
               // return Text("Data: ${snapshot.data}");
               if (snapshot.data!.data.length > 0) {
@@ -54,13 +57,7 @@ class _EventListState extends State<EventList> {
       },
     );
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 0, right: 0, bottom: 10),
-      child: Container(
-          height: MediaQuery.of(context).size.height - 80,
-          color: Colors.white,
-          child: futureBuilder),
-    );
+    return futureBuilder;
   }
 
   Widget createListView(BuildContext context,
@@ -152,6 +149,8 @@ class _EventListState extends State<EventList> {
 
   Widget defaultMessage(Text title, IconData icon) {
     return Container(
+      height: MediaQuery.of(context).size.height - 150,
+      width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -163,16 +162,8 @@ class _EventListState extends State<EventList> {
         ],
       ),
       color: Colors.white,
-      width: MediaQuery.of(context).size.width,
     );
   }
 
-  Widget loading() {
-    return Container(
-      child: CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation(Colors.white),
-        strokeWidth: 11.0,
-      ),
-    );
-  }
+  
 }

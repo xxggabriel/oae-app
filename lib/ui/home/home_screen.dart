@@ -16,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return LayoutBase(
-      hasTop: false,
       child: Column(
         children: [
           TopBar(),

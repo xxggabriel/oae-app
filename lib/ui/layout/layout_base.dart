@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:oea_app/ui/home/widgets/top_bar.dart';
 
 class LayoutBase extends StatelessWidget {
+  
   final Widget child;
-  final bool hasTop;
-  LayoutBase({required this.child, this.hasTop = false});
+  LayoutBase({required this.child});
+
+  static const int HEIGHT_TOPBAR = 70;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,7 @@ class LayoutBase extends StatelessWidget {
           ],
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [this.hasTop ? TopBar() : Container(), this.child],
-          ),
+          child: this.child
         ));
   }
 }

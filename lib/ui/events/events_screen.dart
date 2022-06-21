@@ -8,7 +8,6 @@ class EventsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBase(
-        hasTop: false,
         child: EventList()
     );
   }
