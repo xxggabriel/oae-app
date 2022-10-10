@@ -79,6 +79,7 @@ flutter:
   assets:
     - assets/images/logo/estacio-logo-white.png
     - assets/images/banners/banner1.jpg
+    - assets/images/banners/banner-devfest-2022.jpeg
     - assets/svg/lost-svgrepo-com.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
