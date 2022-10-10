@@ -1,104 +1,137 @@
 import 'package:flutter/material.dart';
-import 'package:oea_app/app/locator.dart';
+import 'package:intl/intl.dart';
 import 'package:oea_app/models/event_model.dart';
 import 'package:oea_app/ui/layout/layout_base.dart';
-import 'package:oea_app/network/api_client.dart';
+import 'package:oea_app/ui/widgets/card_widget.dart';
 
-class EventScreen extends StatefulWidget {
-  const EventScreen({Key? key}) : super(key: key);
+class EventScreen extends StatelessWidget {
+  const EventScreen({super.key});
 
-  @override
-  State<EventScreen> createState() => _EventScreenState();
-}
-
-class _EventScreenState extends State<EventScreen> {
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as EventModel;
-
-//     var htmlData = """
-// A maior experiência imersiva sobre tecnologia, inovação e empreendedorismo está chegando e será no Shopping Passeio das Águas, em Goiânia
-
-// Bem-vindo a Campus Party! Reunimos estudantes, professores, empresários, empreendedores, desenvolvedores e geeks em um único evento para compartilhar muito conhecimento, fomentar tendências e reescrever o código fonte do mundo.
-//     """;
+    final event = (ModalRoute.of(context)?.settings.arguments) as EventModel;
 
     return LayoutBase(
-      child: Column(
-        children: [
-          args.image == null ? Container() : Image.network(args.image ?? ""),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10, top: 30),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      flex: 3,
-                      child: Text(
-                        args.title,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Flexible(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Text("COD.: ${args.cod}", 
-                              style: TextStyle( 
-                                fontWeight: FontWeight.bold
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text("25/07 as 19:30"),
-                            Text("28/07 as 21:30"),
-                          ],
-                        ))
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Ênfase: ${args.emphasis}",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      )),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Período: ${args.periodOf} até ${args.periodUntil}",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      )),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Local: ${args.place}",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      )),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("${args.content}"),
-                ),
-              ],
+      child: Column(children: [
+        (() {
+          if (event.image == null) {
+            return Container();
+          }
+          return Container(
+            child: Image.network(
+              event.image ?? "",
             ),
-          )
-        ],
-      ),
+          );
+        }()),
+        CardWidget(
+          child: Text(
+            event.title,
+            overflow: TextOverflow.fade,
+            style: new TextStyle(
+              fontSize: 13.0,
+              fontFamily: 'Roboto',
+              color: new Color(0xFF212121),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            CardWidget(
+              child: Column(
+                children: [
+                  Text(
+                    "Data",
+                    style: new TextStyle(
+                      fontSize: 13.0,
+                      fontFamily: 'Roboto',
+                      color: new Color(0xFF212121),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    event.startDate != null
+                        ? DateFormat('M/d/y').format(event.startDate!)
+                        : "---",
+                  ),
+                ],
+              ),
+              width: (MediaQuery.of(context).size.width - 60) / 3,
+            ),
+            CardWidget(
+              child: Column(
+                children: [
+                  // Text("Horário"),
+                  Text(
+                    event.startDate != null
+                        ? DateFormat('H:mm').format(event.startDate!)
+                        : "---",
+                    style: new TextStyle(
+                      fontSize: 13.0,
+                      fontFamily: 'Roboto',
+                      color: new Color(0xFF212121),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    event.endDate != null
+                        ? DateFormat('H:mm').format(event.endDate!)
+                        : "---",
+                    style: new TextStyle(
+                      fontSize: 13.0,
+                      fontFamily: 'Roboto',
+                      color: new Color(0xFF212121),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              width: (MediaQuery.of(context).size.width - 60) / 3,
+            ),
+            CardWidget(
+              child: Column(
+                children: [
+                  Text(
+                    "Qtd. Horas",
+                    style: new TextStyle(
+                      fontSize: 13.0,
+                      fontFamily: 'Roboto',
+                      color: new Color(0xFF212121),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(event.expectedHoursToReceive != null
+                      ? event.expectedHoursToReceive.toString()
+                      : "---"),
+                ],
+              ),
+              width: (MediaQuery.of(context).size.width - 60) / 3,
+            ),
+          ],
+        ),
+        CardWidget(
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Text(
+                  "Local:",
+                  style: new TextStyle(
+                    fontSize: 13.0,
+                    fontFamily: 'Roboto',
+                    color: new Color(0xFF212121),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Text(event.place != null ? event.place.toString() : "---"),
+            ],
+          ),
+        ),
+        event.content != null
+            ? CardWidget(child: Text(event.content ?? ''))
+            : Container(),
+      ]),
     );
   }
 }
