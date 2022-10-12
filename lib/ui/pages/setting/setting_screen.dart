@@ -11,14 +11,6 @@ class SettingScreen extends StatelessWidget {
       child: Column(
         children: [
           CardWidget(
-            child: Text(
-              'O que acontece na Estácio',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          CardWidget(
             child: Column(
               children: [
                 Text(
