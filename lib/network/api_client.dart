@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:oea_app/models/event_model.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
