@@ -44,7 +44,7 @@ class CardEvent extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width - 60,
                 child: Text(
-                  "Aula de Inglês ministrada por alunos de Ciências da Computação e ADS. Aluno Responsável: Guilherme José Oliveira Costa 06/06/2022 - 19:30 às 21:30",
+                  this.event.description ?? "",
                   overflow: TextOverflow.fade,
                   style: new TextStyle(
                     fontSize: 13.0,

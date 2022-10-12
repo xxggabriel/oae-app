@@ -13,11 +13,9 @@ abstract class ApiClient {
   factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
 
 // BUSCA DE DADOS
-  @GET("/api/v1/admin/complementary-activities")
+  @GET("/api/v1/events")
   Future<ApiResponse<List<EventModel>>> findEventsAll();
 
-  @GET("/api/v1/admin/complementary-activitie" )
+  @GET("/api/v1/events/{id}")
   Future<ApiResponse<List<EventModel>>> findEvent(@Query("id") int id);
-
- 
 }

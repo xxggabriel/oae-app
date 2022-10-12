@@ -28,7 +28,7 @@ class EventModel {
   @JsonKey()
   String? coverage;
 
-  @JsonKey(name: "expected_hours_to_receive")
+  @JsonKey(name: "expectedHours")
   int? expectedHoursToReceive;
 
   @JsonKey(name: "period_of")
@@ -50,14 +50,14 @@ class EventModel {
   Object? daysWeek;
 
   @JsonKey(
-      name: "start_date", fromJson: safeDateFromJson, toJson: safeDateToJson)
+      name: "startDate", fromJson: safeDateFromJson, toJson: safeDateToJson)
   DateTime? startDate;
 
-  @JsonKey(name: "end_date", fromJson: safeDateFromJson, toJson: safeDateToJson)
+  @JsonKey(name: "endDate", fromJson: safeDateFromJson, toJson: safeDateToJson)
   DateTime? endDate;
 
   @JsonKey(
-      name: "cancellation_limit",
+      name: "cancellationLimit",
       fromJson: safeDateFromJson,
       toJson: safeDateToJson)
   DateTime? cancellationLimit;

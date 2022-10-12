@@ -51,8 +51,11 @@ class EventScreen extends StatelessWidget {
                   ),
                   Text(
                     event.startDate != null
-                        ? DateFormat('M/d/y').format(event.startDate!)
+                        ? DateFormat('d/M/y').format(event.startDate!)
                         : "---",
+                    style: new TextStyle(
+                      fontSize: 12.0,
+                    ),
                   ),
                 ],
               ),

@@ -62,7 +62,7 @@ class LayoutBase extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                Navigator.popAndPushNamed(context, '/config');
+                Navigator.popAndPushNamed(context, '/settings');
               },
               icon: Icon(Icons.menu),
               color: HexColor("#FFFFFF"),
